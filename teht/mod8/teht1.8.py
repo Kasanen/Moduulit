@@ -1,24 +1,20 @@
 import mysql.connector
-
-def hae_työntekijät_sukunimellä(sukunimi):
-    sql = f"SELECT Numero, Sukunimi, Etunimi, Palkka FROM Työntekijä where Sukunimi='{sukunimi}'"
-    print(sql)
+# 1. ICAO
+def hae_lentokentta(ICAO):
+    sql = f"SELECT airport.name, country.name FROM airport, country WHERE ident='{ICAO}'"
     kursori = yhteys.cursor()
     kursori.execute(sql)
     tulos = kursori.fetchall()
-    if kursori.rowcount >0 :
-        for rivi in tulos:
-            print(f"Päivää! Olen {rivi[2]} {rivi[1]}. Palkkani on {rivi[3]} euroa kuussa.")
-    return
+    print({tulos[1]})
 
 yhteys = mysql.connector.connect(
          host='127.0.0.1',
          port= 3306,
-         database='ihmiset',
-         user='dbuser',
-         password='sAL_a3ana',
+         database='flight_game',
+         user='root',
+         password='assa1221',
          autocommit=True
          )
 
-sukunimi = input("Anna sukunimi: ")
-hae_työntekijät_sukunimellä(sukunimi)
+ICAO = input("Syötä lentokentän ICAO koodin: ")
+hae_lentokentta(ICAO)
