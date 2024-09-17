@@ -1,4 +1,4 @@
-# Auto luokka kuljettu matka
+# 3. Auto luokka kuljettu matka
 class Auto:
     def __init__(car, rekisteritunnut, huippunopeus, hetkinennopeus, matka):
         car.rekisteritunnus = rekisteritunnut

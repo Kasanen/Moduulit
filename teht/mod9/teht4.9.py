@@ -1,6 +1,6 @@
 import random
 
-# Kilpailu
+# 4. Kilpailu
 class Auto:
     def __init__(car, rekisteritunnut, huippunopeus, hetkinennopeus, matka):
         car.rekisteritunnus = rekisteritunnut

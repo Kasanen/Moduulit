@@ -1,4 +1,4 @@
-# Auto luokka
+# 1. Auto luokka
 class Auto:
     def __init__(car, rekisteritunnut, huippunopeus, hetkinennopeus, matka):
         car.rekisteritunnus = rekisteritunnut
