@@ -1,4 +1,4 @@
-# 1. Hissi
+# 2. Talo
 class Hissi:
     def __init__(self, alin_kerros = 1, ylin_kerros = 10, kerros = 1):
         self.alinkerros = alin_kerros
