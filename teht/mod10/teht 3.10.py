@@ -38,22 +38,21 @@ class Talo:
         return
     
     def palohalytys(self):
-        luku = 0
+        print("Palohälytys!")
         for i in range(self.hisseja):
-            self.aja_hissia(luku, self.alinkerros)
-            luku += 1
+            self.aja_hissia(i, self.alinkerros)
+
+    def hissiCheck(self):
+        for i in range(t.hisseja):
+            print(t.hissit[i].kerros)
 
 t = Talo(1, 10, 3)
 
 t.aja_hissia(1, 4)
 t.aja_hissia(2, 10)
 
-print(t.hissit[0].kerros)
-print(t.hissit[1].kerros)
-print(t.hissit[2].kerros)
+t.hissiCheck()
 
 t.palohalytys()
 
-print(t.hissit[0].kerros)
-print(t.hissit[1].kerros)
-print(t.hissit[2].kerros)
+t.hissiCheck()
