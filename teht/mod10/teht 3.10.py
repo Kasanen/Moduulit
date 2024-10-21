@@ -1,4 +1,4 @@
-# 2. Palohälytys
+# 3. Palohälytys
 class Hissi:
     def __init__(self, alinkerros, ylinkerros):
         self.alinkerros = alinkerros
