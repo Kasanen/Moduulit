@@ -1,21 +1,34 @@
-from flask import Flask, request
+import mysql.connector
+from flask import Flask
 
 # 1. ICAO rajapinta
+def hae_lentokentta(ICAO):
+    sql = f"SELECT airport.name, airport.municipality FROM airport WHERE ident='{ICAO}'"
+    kursori = yhteys.cursor()
+    kursori.execute(sql)
+    tulos = kursori.fetchall()
+    if tulos:
+        return tulos[0]
+    else:
+        return None
+
+yhteys = mysql.connector.connect(
+         host='127.0.0.1',
+         port= 3306,
+         database='flight_game',
+         user='root',
+         password='salasana',
+         autocommit=True
+         )
+
+# Rajapinta
 app = Flask(__name__)
-@app.route('/alkuluku/<numero>')
+@app.route('/kentta/<ICAO>')
 
-def alkuluku(numero):
-    numero = float(numero)
-    onko = True
-
-    if numero <= 1:
-        onko = False
-    for i in range(2, int(numero**0.5) + 1):
-        if numero % i == 0:
-            onko = False
-
+def koodi(ICAO):
+    lentokentta = hae_lentokentta(ICAO)
     vastaus = {
-        "Number": numero, "isPrime": onko
+        "ICAO": ICAO, "Name": lentokentta[0], "Municipality": lentokentta[1],
     }
     return (vastaus)
 
